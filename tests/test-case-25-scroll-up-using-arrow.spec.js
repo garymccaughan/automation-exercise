@@ -1,0 +1,23 @@
+const { test, expect } = require('../fixtures/base.fixture');
+
+test("Test Case 25: Verify Scroll Up using 'Arrow' button and Scroll Down functionality", async ({
+  homePage,
+}) => {
+  // 1-2. Navigate to url
+  await homePage.navigate();
+
+  // 3. Verify that home page is visible successfully
+  await expect(await homePage.isHomePageVisible()).toBeTruthy();
+
+  // 4. Scroll down page to bottom
+  await homePage.scrollToBottom();
+
+  // 5. Verify 'SUBSCRIPTION' is visible
+  await expect(homePage.subscriptionHeading).toBeVisible();
+
+  // 6. Click on arrow at bottom right side to move upward
+  await homePage.clickScrollUpArrow();
+
+  // 7. Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen
+  await expect(homePage.sliderHeading).toContainText('Full-Fledged practice website for Automation Engineers');
+});
