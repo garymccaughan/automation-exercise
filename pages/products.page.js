@@ -53,6 +53,7 @@ class ProductsPage {
     await product.scrollIntoViewIfNeeded();
     await product.hover();
     const overlay = product.locator('.product-overlay .add-to-cart');
+    await overlay.waitFor({ state: 'visible', timeout: 5000 });
     await overlay.click();
   }
 
@@ -67,8 +68,13 @@ class ProductsPage {
   async addSearchedProductsToCart() {
     const count = await this.productCards.count();
     for (let i = 0; i < count; i++) {
-      await this.hoverAndAddToCart(i);
+      const product = this.productCards.nth(i);
+      await product.scrollIntoViewIfNeeded();
+      // Use the non-overlay add-to-cart button to avoid hover issues
+      const addBtn = product.locator('.productinfo .add-to-cart');
+      await addBtn.click();
       if (i < count - 1) {
+        await this.continueShoppingButton.waitFor({ state: 'visible' });
         await this.clickContinueShopping();
       }
     }
