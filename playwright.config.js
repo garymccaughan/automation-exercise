@@ -34,5 +34,13 @@ module.exports = defineConfig({
         baseURL: 'https://automationexercise.com/api',
       },
     },
+    {
+      name: 'nonfunctional',
+      testDir: './tests/nonfunctional',
+      use: {
+        ...devices['Desktop Chrome'],
+        baseURL: 'https://automationexercise.com',
+      },
+    },
   ],
 });

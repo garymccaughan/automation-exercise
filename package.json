@@ -6,6 +6,7 @@
     "test": "npx playwright test --project=chromium --workers=4",
     "test:api": "npx playwright test --project=api --workers=1",
     "test:headed": "npx playwright test --project=chromium --workers=4 --headed",
+    "test:nonfunctional": "npx playwright test --project=nonfunctional --workers=1",
     "test:report": "npx playwright test --workers=4 --reporter=html && npx playwright show-report"
   },
   "keywords": [],
@@ -13,7 +14,9 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
     "@playwright/test": "^1.58.2",
-    "@types/node": "^25.3.2"
+    "@types/node": "^25.3.2",
+    "playwright-lighthouse": "^4.0.0"
   }
 }

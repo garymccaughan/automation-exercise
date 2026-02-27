@@ -29,7 +29,12 @@ automation-exercise/
     ├── test-case-01-register-user.spec.js
     ├── test-case-02-login-correct.spec.js
     ├── ...
-    └── test-case-26-scroll-up-without-arrow.spec.js
+    ├── test-case-26-scroll-up-without-arrow.spec.js
+    ├── api/                      # API test specs
+    └── nonfunctional/            # Non-functional tests
+        ├── landing-page-a11y.spec.js
+        ├── landing-page-performance.spec.js
+        └── landing-page-lighthouse.spec.js
 ```
 
 ## Setup
@@ -91,6 +96,18 @@ All 26 test cases from [automationexercise.com/test_cases](https://automationexe
 | 25 | Verify Scroll Up using 'Arrow' button and Scroll Down |
 | 26 | Verify Scroll Up without 'Arrow' button and Scroll Down |
 
+## Non-Functional Tests
+
+The `tests/nonfunctional/` folder contains non-functional tests for the landing page using `@axe-core/playwright` and `playwright-lighthouse`.
+
+- **`landing-page-a11y.spec.js`** — WCAG 2.1 AA accessibility (axe-core scans, keyboard nav, focus, page structure, responsive)
+- **`landing-page-performance.spec.js`** — Page load timing, resource loading, DOM size, console errors
+- **`landing-page-lighthouse.spec.js`** — Lighthouse audits (accessibility, performance, best practices, SEO)
+
+```bash
+npm run test:nonfunctional
+```
+
 ## Design Patterns
 
 - **Page Object Model (POM)** - Each page has its own class encapsulating locators and actions
@@ -103,3 +120,5 @@ All 26 test cases from [automationexercise.com/test_cases](https://automationexe
 - Playwright
 - JavaScript (Node.js)
 - Chromium (configurable in playwright.config.js)
+- axe-core (accessibility testing)
+- Lighthouse (performance & SEO auditing)
