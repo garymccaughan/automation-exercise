@@ -96,6 +96,20 @@ All 26 test cases from [automationexercise.com/test_cases](https://automationexe
 | 25 | Verify Scroll Up using 'Arrow' button and Scroll Down |
 | 26 | Verify Scroll Up without 'Arrow' button and Scroll Down |
 
+## API Tests
+
+The `tests/api/` folder covers the [automationexercise.com REST APIs](https://automationexercise.com/api_list):
+
+- `products-api.spec.js` — Products list and search
+- `brands-api.spec.js` — Brands list
+- `account-api.spec.js` — Account create/delete
+- `verify-login-api.spec.js` — Login verification
+- `search-api.spec.js` — Product search
+
+```bash
+npm run test:api
+```
+
 ## Non-Functional Tests
 
 The `tests/nonfunctional/` folder contains non-functional tests for the landing page using `@axe-core/playwright` and `playwright-lighthouse`.
@@ -105,7 +119,13 @@ The `tests/nonfunctional/` folder contains non-functional tests for the landing 
 - **`landing-page-lighthouse.spec.js`** — Lighthouse audits (accessibility, performance, best practices, SEO)
 
 ```bash
+# Run all non-functional tests
 npm run test:nonfunctional
+
+# Run by category
+npm run test:a11y
+npm run test:performance
+npm run test:lighthouse
 ```
 
 ## Design Patterns

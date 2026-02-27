@@ -7,6 +7,9 @@
     "test:api": "npx playwright test --project=api --workers=1",
     "test:headed": "npx playwright test --project=chromium --workers=4 --headed",
     "test:nonfunctional": "npx playwright test --project=nonfunctional --workers=1",
+    "test:a11y": "npx playwright test --project=nonfunctional -g @a11y --workers=1",
+    "test:performance": "npx playwright test --project=nonfunctional -g @performance --workers=1",
+    "test:lighthouse": "npx playwright test --project=nonfunctional -g @lighthouse --workers=1",
     "test:report": "npx playwright test --workers=4 --reporter=html && npx playwright show-report"
   },
   "keywords": [],
