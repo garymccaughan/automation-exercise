@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test --workers=4",
-    "test:headed": "npx playwright test --workers=4 --headed",
+    "test": "npx playwright test --project=chromium --workers=4",
+    "test:api": "npx playwright test --project=api --workers=1",
+    "test:headed": "npx playwright test --project=chromium --workers=4 --headed",
     "test:report": "npx playwright test --workers=4 --reporter=html && npx playwright show-report"
   },
   "keywords": [],

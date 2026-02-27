@@ -23,7 +23,16 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'chromium',
+      testDir: './tests',
+      testIgnore: '**/api/**',
       use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'api',
+      testDir: './tests/api',
+      use: {
+        baseURL: 'https://automationexercise.com/api',
+      },
     },
   ],
 });
